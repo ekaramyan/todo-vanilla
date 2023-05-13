@@ -1,0 +1,47 @@
+@import '_reset';
+
+
+header{
+    display: flex;
+    background: #a0a0a0;
+    padding: 2% 1%;
+    color: #fff;
+}
+.show{
+    &__btn{
+        cursor: pointer;
+        transition: .3s;
+        &:hover{
+            color: orange;
+        }
+    }
+    &__content{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-width: fit-content;
+        align-items: center;
+        gap: 10px;
+        div{
+            border-radius: 15px;
+            display: flex;
+            width: 50%;
+            justify-content: space-between;
+            padding: 1% 1.5%;
+            p{
+                text-transform: uppercase;
+            }
+        }
+        .completed{
+            background: #9bf7ff;
+        }
+        .not-completed{
+            background: #ffd99b;
+        }
+    }
+}
+
+input{
+    cursor: pointer;
+}
