@@ -19,17 +19,31 @@ const addElement = (todos = [{}]) => {
 
     const newContent = document.createElement('input');
     newContent.setAttribute('type', 'checkbox');
-    newDiv.classList.add('todo')
+    newDiv.classList.add('todo');
     controlsDiv.appendChild(newContent);
 
     const editButton = document.createElement('button');
     editButton.innerHTML = 'Edit';
     editButton.addEventListener('click', () => {
-      const newText = prompt('Enter new text:');
-      if (newText) {
-        todo.title = newText;
-        checkText.innerHTML = newText;
-      }
+      const modal = document.getElementById('modal');
+      const modalInput = document.getElementById('modalInput');
+      modalInput.value = todo.title; // Заполняем поле модального окна текущим текстом
+      modal.style.display = 'block'; // Отображаем модальное окно
+
+      const saveButton = document.getElementById('saveButton');
+      saveButton.addEventListener('click', () => {
+        const newText = modalInput.value;
+        if (newText) {
+          todo.title = newText;
+          checkText.innerHTML = newText;
+        }
+        modal.style.display = 'none'; // Скрываем модальное окно после сохранения
+      });
+
+      const cancelButton = document.getElementById('cancelButton');
+      cancelButton.addEventListener('click', () => {
+        modal.style.display = 'none'; // Скрываем модальное окно при отмене
+      });
     });
 
     const deleteButton = document.createElement('button');
@@ -59,6 +73,7 @@ const addElement = (todos = [{}]) => {
     });
   });
 };
+
 
 
 
