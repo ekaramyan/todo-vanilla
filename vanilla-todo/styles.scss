@@ -23,7 +23,7 @@ header{
         min-width: fit-content;
         align-items: center;
         gap: 10px;
-        div{
+        .todo{
             border-radius: 15px;
             display: flex;
             width: 50%;
@@ -38,6 +38,42 @@ header{
         }
         .not-completed{
             background: #ffd99b;
+        }
+        .controls{
+            display: flex;
+            max-height: 1.5em;
+            gap: 1%;
+            align-items: center;
+            justify-content: space-between;
+            button{
+                display: inline-block;
+                padding: 8px 16px;
+                background-color: #d77aff;
+                color: white;
+                font-size: 1.2em;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all .3s;
+                &:hover{
+                    background-color: #fa69ff;
+                }
+            }
+            input{
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                cursor: pointer;
+                &:checked {
+                    background-color: #4CAF50;
+                    border-color: #4CAF50;
+                  }
+                  &:focus {
+                    outline: none;
+                  }
+            }
         }
     }
 }

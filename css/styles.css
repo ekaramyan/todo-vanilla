@@ -68,14 +68,14 @@ header {
   align-items: center;
   gap: 10px;
 }
-.show__content div {
+.show__content .todo {
   border-radius: 15px;
   display: flex;
   width: 50%;
   justify-content: space-between;
   padding: 1% 1.5%;
 }
-.show__content div p {
+.show__content .todo p {
   text-transform: uppercase;
 }
 .show__content .completed {
@@ -83,6 +83,42 @@ header {
 }
 .show__content .not-completed {
   background: #ffd99b;
+}
+.show__content .controls {
+  display: flex;
+  max-height: 1.5em;
+  gap: 1%;
+  align-items: center;
+  justify-content: space-between;
+}
+.show__content .controls button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #d77aff;
+  color: white;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.show__content .controls button:hover {
+  background-color: #fa69ff;
+}
+.show__content .controls input {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.show__content .controls input:checked {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+}
+.show__content .controls input:focus {
+  outline: none;
 }
 
 input {

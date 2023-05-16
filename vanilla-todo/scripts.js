@@ -14,16 +14,53 @@ const addElement = (todos = [{}]) => {
     const newDiv = document.createElement('div');
     const checkText = document.createElement('p');
     checkText.innerHTML = todo.title;
+    const controlsDiv = document.createElement('div');
+    controlsDiv.classList.add('controls');
+
     const newContent = document.createElement('input');
     newContent.setAttribute('type', 'checkbox');
-    newDiv.appendChild(checkText);
-    newDiv.appendChild(newContent);
+    newDiv.classList.add('todo')
+    controlsDiv.appendChild(newContent);
 
+    const editButton = document.createElement('button');
+    editButton.innerHTML = 'Edit';
+    editButton.addEventListener('click', () => {
+      const newText = prompt('Enter new text:');
+      if (newText) {
+        todo.title = newText;
+        checkText.innerHTML = newText;
+      }
+    });
+
+    const deleteButton = document.createElement('button');
+    deleteButton.innerHTML = 'Delete';
+    deleteButton.addEventListener('click', () => {
+      const index = todos.indexOf(todo);
+      if (index > -1) {
+        todos.splice(index, 1);
+        newDiv.remove();
+      }
+    });
+
+    controlsDiv.appendChild(editButton);
+    controlsDiv.appendChild(deleteButton);
+
+    newDiv.appendChild(checkText);
+    newDiv.appendChild(controlsDiv);
     div1.appendChild(newDiv);
+
     newDiv.classList.add(todo.completed ? 'completed' : 'not-completed');
     newContent.checked = todo.completed ? true : false;
+
+    newContent.addEventListener('change', () => {
+      todo.completed = newContent.checked;
+      newDiv.classList.toggle('completed', newContent.checked);
+      newDiv.classList.toggle('not-completed', !newContent.checked);
+    });
   });
 };
+
+
 
 const loader_f = () => {
   if (loader) {
